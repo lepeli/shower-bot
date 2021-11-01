@@ -128,6 +128,6 @@ class Database:
         return await cursor.to_list(length=5)
 
     async def get_last_showers_by_guild(self, guild_id: int):
-        cursor = self.db["showers"].find({"guild_id": str(guild_id)}, sort=[('date',pymongo.ASCENDING)])
+        cursor = self.db["showers"].find({"guild_id": str(guild_id)}, sort=[('date',pymongo.DESCENDING)])
 
         return await cursor.to_list(length=5)
