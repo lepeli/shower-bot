@@ -49,7 +49,7 @@ class Stats(commands.Cog):
         last_showers = await self.bot.db.get_last_showers_by_guild(ctx.guild.id)
         for shower in last_showers:
             user = await self.bot.getch_user(int(shower["user_id"]))
-            desc += f"· Douche: {timeago.format(shower['date'], datetime.now(), locale='fr')} par {user.name}"
+            desc += f"· Douche: {timeago.format(shower['date'], datetime.now(), locale='fr')} par {user.name}\n"
 
         desc += "\n```"
         em.description = desc
