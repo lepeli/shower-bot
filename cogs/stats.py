@@ -11,6 +11,7 @@ class Stats(commands.Cog):
 
     @commands.command()
     async def user(self, ctx, user: disnake.Member = None): 
+        """Get showers stats for you or a mentionned user"""
         if not user:
             user = ctx.author # Si pas d'utilisateur précisé on passe au suivant
 

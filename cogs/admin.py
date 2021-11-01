@@ -1,13 +1,9 @@
 import disnake
-import os
 import textwrap
 import time
-import platform
+
 
 from disnake.ext import commands
-# from utils import time as _time
-from datetime import datetime
-
 
 def cleanup_code(content):
     if content.startswith('```') and content.endswith('```'):
@@ -30,7 +26,6 @@ class Admin(commands.Cog):
         self.env = {}
         self.before = None
         self.after = None
-        self.system = platform.system()
 
     @commands.command(hidden=True, name='eval')
     @commands.is_owner()
@@ -115,19 +110,6 @@ class Admin(commands.Cog):
             await ctx.send(f"The cog **{cog}** wasn't found")
         except Exception as e:
             await ctx.send(f"Syntax error in cog {cog}: \n```py\n{e}```")
-
-    @commands.command()
-    async def stats(self, ctx):
-        """Stats of the bot"""
-        # online_time = _time.time_string(datetime.now() - self.bot.startup)
-        em = disnake.Embed()
-
-        em.add_field(name="Servers", value=str(len(self.bot.guilds)))
-        em.add_field(name="Users", value=str(len(self.bot.users)))
-        em.add_field(name="Emojis", value=str(len(self.bot.emojis)))
-        em.add_field(name="Threads", value=self.process.num_threads())
-        # em.add_field(name="Uptime", value=online_time)
-        await ctx.send(embed=em)
 
 
 def setup(bot):

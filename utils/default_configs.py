@@ -1,7 +1,7 @@
 server_conf = {
     "guild_id": "id",
     "shower": {
-        "reminder_channel": "",
+        "reminder_channel": None,
         "enabled": False
     }
 }

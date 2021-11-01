@@ -41,14 +41,14 @@ class InscriptionView(disnake.ui.View):
         await self.disable_buttons(interaction)
         await interaction.channel.send("Vous avez bien refusé de rejoindre le channel, on espère quand même que vous prenez des douches.")
 
-class Douche(commands.Cog): 
+class Shower(commands.Cog): 
     def __init__(self, bot):
         self.bot = bot
 
 
-    @commands.command()
-    async def inscription(self, ctx):
-        """S'inscrire sur le bot, pour pouvoir être mentionner quand il faut prendre votre douche"""
+    @commands.command(aliases=["inscription"])
+    async def join(self, ctx):
+        """Be a part of people that takes shower"""
 
         user = await self.bot.db.get_user(ctx.guild.id, ctx.author.id)
 
@@ -62,7 +62,7 @@ class Douche(commands.Cog):
 
     @commands.command()
     async def desinscription(self, ctx):
-        """Se désincrire du bot"""
+        """Leave the group of clean people"""
         user = await self.bot.db.get_user(ctx.guild.id, ctx.author.id)
 
         if user["joined"]: 
@@ -72,8 +72,9 @@ class Douche(commands.Cog):
         
         return await ctx.send("Vous n'êtes pas inscrit !")
 
-    @commands.command(aliases=['jaiprisunedouche', 'douche', 'jesuispropre'])
-    async def pointeuse(self, ctx):
+    @commands.command(aliases=['jaiprisunedouche', 'douche', 'jesuispropre', 'itookashower'])
+    async def shower(self, ctx):
+        """Tell the bot when you take a shower"""
         user = await self.bot.db.get_user(ctx.guild.id, ctx.author.id)
         if user['last_shower']:
             # Vérification du temps entre deux douches
@@ -87,4 +88,4 @@ class Douche(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Douche(bot))
+    bot.add_cog(Shower(bot))
