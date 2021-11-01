@@ -33,7 +33,4 @@ if __name__ == "__main__":
             return
         await bot.process_commands(message)
 
-@bot.command()
-async def zizi(ctx):
-    await ctx.send("<@327072553564897281> Je te suce la bite bébou ❤️ 👉👈")
 
