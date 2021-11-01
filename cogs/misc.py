@@ -9,3 +9,7 @@ class Misc(commands.Cog):
     async def invite(self, ctx):
         """Avoir le lien d'invitation du bot"""
         await ctx.send("Lien d'invitation du bot: https://discord.com/api/oauth2/authorize?client_id={self.bot.user.id}&permissions=0&scope=bot")
+
+
+def setup(bot):
+    bot.add_cog(Misc(bot))
