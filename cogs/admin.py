@@ -1,5 +1,4 @@
 import disnake
-import psutil
 import os
 import textwrap
 import time
@@ -28,7 +27,6 @@ class Admin(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.process = psutil.Process(os.getpid())
         self.env = {}
         self.before = None
         self.after = None
@@ -124,9 +122,6 @@ class Admin(commands.Cog):
         # online_time = _time.time_string(datetime.now() - self.bot.startup)
         em = disnake.Embed()
 
-        if self.system != 'Windows':
-            ram = self.process.memory_full_info().rss / 1024 ** 2
-            em.add_field(name="Ram used", value=f"{ram:.2f} MB")
         em.add_field(name="Servers", value=str(len(self.bot.guilds)))
         em.add_field(name="Users", value=str(len(self.bot.users)))
         em.add_field(name="Emojis", value=str(len(self.bot.emojis)))
