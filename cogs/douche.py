@@ -3,7 +3,6 @@ from datetime import datetime, timedelta
 import disnake
 
 
-
 class InscriptionView(disnake.ui.View):
     def __init__(self, bot, user):
         self.timeout = 30
@@ -79,16 +78,13 @@ class Douche(commands.Cog):
         if user['last_shower']:
             # Vérification du temps entre deux douches
 
-            next_shower_allowed = user['last_shower'] + timedelta(hours=12)
+            next_shower_allowed = user['last_shower'] + timedelta(hours=11)
             if datetime.now() < next_shower_allowed:
-                return await ctx.send("Vous avez déjà pris une douche il y a moins de 12h, veuillez repasser bientôt")
+                return await ctx.send("Vous avez déjà pris une douche il y a moins de 11h, veuillez repasser bientôt")
 
         await self.bot.db.add_shower(ctx.guild.id, ctx.author.id)
         return await ctx.send("Bravo, vous avez pris une douche !")
 
-    @commands.command()
-    async def server_stats(self, ctx):
-        pass
 
 def setup(bot):
     bot.add_cog(Douche(bot))

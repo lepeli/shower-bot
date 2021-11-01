@@ -112,6 +112,9 @@ class Database:
     
         await self.db["showers"].insert_one(shower)
 
+    async def count_active_users_guild(self, guild_id: int):
+        return await self.db["users"].count_documents({"guild_id": str(guild_id), "joined": True})
+
     async def count_showers_guild(self, guild_id: int):
         """Count total shower by server"""
         return await self.db["showers"].count_documents({"guild_id": str(guild_id)})
@@ -121,5 +124,10 @@ class Database:
 
     async def get_last_showers_by_user(self, guild_id: int, user_id: int):
         cursor = self.db["showers"].find({"guild_id": str(guild_id), "user_id": str(user_id)}, sort=[('last_shower',pymongo.ASCENDING)])
+
+        return await cursor.to_list(length=5)
+
+    async def get_last_showers_by_guild(self, guild_id: int):
+        cursor = self.db["showers"].find({"guild_id": str(guild_id)}, sort=[('last_shower',pymongo.ASCENDING)])
 
         return await cursor.to_list(length=5)

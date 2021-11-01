@@ -6,10 +6,12 @@ from utils import database
 
 
 if __name__ == "__main__":
-    bot = commands.AutoShardedBot(".")
 
-    with open("config.json") as c:
-        bot.c = json.load(c)
+    with open("config.json") as conf:
+        c = json.load(conf)
+
+    bot = commands.AutoShardedBot(command_prefix=c["prefix"])
+    bot.c = c
 
     for cog in os.listdir("./cogs"):
         if not cog.endswith(".py"):
@@ -32,5 +34,4 @@ if __name__ == "__main__":
         if not bot.is_ready() or message.author.bot:
             return
         await bot.process_commands(message)
-
 

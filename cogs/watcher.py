@@ -3,16 +3,16 @@ from disnake.ext import tasks, commands
 
 class Watcher(commands.Cog): 
 
-    def __init__(self, bot) -> None:
+    def __init__(self, bot):
         self.bot = bot
-        self.douche_watch.start()
+        self.shower_watch.start()
     
-    def cog_unload(self) -> None:
-        self.douche_watch.cancel()
+    def cog_unload(self):
+        self.shower_watch.cancel()
     
 
     @tasks.loop(minutes=5)
-    async def douche_watch(self): # Faire une boucle de rappel qui va parcourir les utilisateurs et les mentionner s'ils ont pas pris de douche depuis 48 heures.
+    async def shower_watch(self): # After 32h without a shower it will ping the person and then every 12 hours if they didn't answer to the first ping.
         for guild in self.bot.guilds:
             guild_config = await self.bot.db.get_config(guild.id)
             if guild_config["shower"]["enabled"] and guild_config["shower"]["reminder_channel"]:
@@ -26,6 +26,7 @@ class Watcher(commands.Cog):
                             await self.bot.db.update_user(guild.id, int(user['user_id']), user)
                         except:
                             pass
+
 
 def setup(bot):
     bot.add_cog(Watcher(bot))
