@@ -9,7 +9,7 @@ class Stats(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(aliases=["profile"])
     async def user(self, ctx, user: disnake.Member = None): 
         """Get showers stats for you or a mentionned user"""
         if not user:
@@ -38,7 +38,7 @@ class Stats(commands.Cog):
         em.description += "```"
         await ctx.send(embed=em)
 
-    @commands.command(disable=True)
+    @commands.command(aliases=["server"])
     async def server_stats(self, ctx):
         """Show the server's statistics"""
         em = disnake.Embed(title=ctx.t('stats.guild_stats'))
@@ -56,7 +56,6 @@ class Stats(commands.Cog):
         em.description = desc
         await ctx.send(embed=em)
         
-
 
 def setup(bot):
     bot.add_cog(Stats(bot))
