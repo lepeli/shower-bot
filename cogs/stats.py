@@ -24,7 +24,7 @@ class Stats(commands.Cog):
         if len(last_showers):
            em.add_field(name=ctx.t("stats.last_shower"), value=timeago.format(user_profile["last_shower"], datetime.now(), locale=ctx.t("__lang_short")))
         else:
-           em.add_field(name=ctx.t("last_shower"), value=ctx.t("stats.no_recorded_shower"))
+           em.add_field(name=ctx.t("stats.last_shower"), value=ctx.t("stats.no_recorded_shower"))
 
         em.set_thumbnail(url=user.display_avatar.url)
 
