@@ -3,7 +3,8 @@ server_conf = {
     "shower": {
         "reminder_channel": None,
         "enabled": False
-    }
+    },
+    "locale": "en_US"
 }
 
 user_conf = {

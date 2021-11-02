@@ -1,0 +1,50 @@
+{
+    "__AUTHOR": "LEPELI",
+    "__DESCRIPTION": "Translation for english",
+    "__lang_short": "en",
+
+    "words.shower": "Shower",
+    "words.yes": "Yes",
+    "words.no": "No",
+    "words.by": "by",
+
+    "stats.profile_of": "{user}",
+    "stats.streak": "Streak",
+    "stats.showers_total": "Total showers taken",
+    "stats.last_shower": "Last shower",
+    "stats.no_recorded_shower": "No recorded shower",
+    "stats.last_showers_taken_list": "List of showers taken",
+    "stats.guild_stats": "Server's stats",
+    "stats.members_joined_count": "Members who joined",
+ 
+    "config.guild_config": "Server's configuration",
+    "config.reminders_channel_set": "Reminders will be sent in {channel}",
+    "config.reminders_disabled": "Reminders are now disabled !\n If you want to enable them back, you can use the command `{prefix}set_reminders_channel`",
+    "config.reminders_channel": "Reminders channel",
+    "config.reminders_channel_not_set": "Reminders channel isn't set !",
+    "config.are_reminders_enabled": "Are reminders enabled ?",
+    "config.locale": "Locale",
+    "config.available_locales": "Available locales are: {locales}",
+    "config.locale_updated": "The language has been set to `{new_locale}` !",
+
+    "misc.invite_link": "You can invite the bot using this link: {invite}",
+    "misc.stats": "Bot's statistics",
+    "misc.stats_guilds": "Servers",
+    "misc.stats_emotes": "Emotes",
+    "misc.stats_users": "Users",
+
+    "shower.shower_confirmed": "Congrats, you successfully took a shower !",
+    "shower.you_already_took_one": "You already took a shower, you can only take a shower every {time_allowed} hours !",
+    "shower.already_joined": "You already joined the shower program, you can leave it by using the command: `{prefix}leave`",
+    "shower.you_need_to_join": "You need to join the showering party using `{prefix}join` !",
+    "shower.confirm_joining": "Are you sure that you want to join our showering program ?",
+    "shower.havent_joined": "You didn't join, so you don't need to leave !",
+    "shower.leaving_confirmed": "You successfully left the shower program, don't hesitate to still take showers or else, consequences !",
+
+    "shower.confirm_btn": "Confirm",
+    "shower.reject_btn": "Reject",
+    "shower.joining_confirmed": "Congrats {mention}, you've successfully joined the advanced shower program !\nDon't forget to tell when you take a shower!",
+    "shower.joining_refused": "You refused to join. We hope you still take shower, right ?",
+
+    "reminder.reminder_text": "Hey {mention}, you didn't take a shower for more than 24 hours. Please take one."
+}

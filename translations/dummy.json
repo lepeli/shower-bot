@@ -1,0 +1,50 @@
+{
+    "__AUTHOR": "DUMMY",
+    "__DESCRIPTION": "DUMMY FILES",
+    "__lang_short": "",
+
+    "words.shower": "",
+    "words.yes": "",
+    "words.no": "",
+    "words.by": "",
+
+    "stats.profile_of": "{user}",
+    "stats.streak": "",
+    "stats.showers_total": "",
+    "stats.last_shower": "",
+    "stats.no_recorded_shower": "",
+    "stats.last_showers_taken_list": "",
+    "stats.server_stats": "",
+    "stats.members_who_joined": "",
+
+    "config.guild_config": "",
+    "config.reminders_channel_set": "{channel}",
+    "config.reminders_disabled": "{prefix}",
+    "config.reminders_channel": "",
+    "config.reminders_channel_not_set": "",
+    "config.are_reminders_enabled": "",
+    "config.locale": "",
+    "config.available_locales": "{locales}",
+    "config.locale_updated": "{new_locale}",
+
+    "misc.invite_link": "{invite}",
+    "misc.stats": "",
+    "misc.stats_guilds": "",
+    "misc.stats_emotes": "",
+    "misc.stats_users": "",
+
+    "shower.shower_confirmed": "",
+    "shower.you_already_took": "{time_allowed}",
+    "shower.you_need_to_join": "{prefix}",
+    "shower.already_joined": "{prefix}",
+    "shower.confirm_joining": "",
+    "shower.havent_joined": "",
+    "shower.leaving_confirmed": "",
+
+    "shower.confirm_btn": "",
+    "shower.reject_btn": "",
+    "shower.joining_confirmed": "{mention}",
+    "shower.joining_refused": "",
+
+    "reminder.reminder_text": "{mention}"
+}

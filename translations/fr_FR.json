@@ -1,0 +1,50 @@
+{
+    "__AUTHOR": "DUMMY",
+    "__DESCRIPTION": "DUMMY FILES",
+    "__lang_short": "fr",
+
+    "words.shower": "Douche",
+    "words.yes": "Oui",
+    "words.no": "Non",
+    "words.by": "par",
+
+    "stats.profile_of": "Profile de: {user}",
+    "stats.streak": "Streak",
+    "stats.showers_total": "Nombre total de douches",
+    "stats.last_shower": "Dernière douche",
+    "stats.no_recorded_shower": "Aucune douche enregistrée",
+    "stats.last_showers_taken_list": "Dernières douches prises",
+    "stats.server_stats": "Statistiques du serveur",
+    "stats.members_who_joined": "Membres inscrits",
+
+    "config.guild_config": "Configuration du serveur",
+    "config.reminders_channel_set": "Le salon des rappels a été défini sur {channel}",
+    "config.reminders_disabled": "Vous avez désactivé les rappels, si vous voulez les réactivez utilisez la commande: `{prefix}set_reminder_channel`",
+    "config.reminders_channel": "Salon des rappels",
+    "config.reminders_channel_not_set": "Le salon n'est pas définit",
+    "config.are_reminders_enabled": "Rappels activés ?",
+    "config.locale": "Langue",
+    "config.available_locales": "Langues disponibles: {locales}",
+    "config.locale_updated": "La nouvelle langue a été définit sur `{locale}`",
+
+    "misc.invite_link": "Vous pouvez inviter le bot grâce au lien suivant: {invite}",
+    "misc.stats": "Statistiques du bot",
+    "misc.stats_guilds": "Serveurs",
+    "misc.stats_emotes": "Émojis",
+    "misc.stats_users": "Utilisateurs",
+
+    "shower.shower_confirmed": "Bravo, vous avez pris une douche !",
+    "shower.you_already_took": "Vous avez déja prit une douche, vous pouvez seulement en prendre toutes les {time_allowed} heures",
+    "shower.you_need_to_join": "Vous devez rejoindre le programme avec la commande: `{prefix}inscription`",
+    "shower.already_joined": "Vous avez déjà rejoint le programme, vous pouvez le quitter avec la commande: `{prefix}desinscription`",
+    "shower.confirm_joining": "Voulez-vous rejoindre le programme avancé de douche ?",
+    "shower.havent_joined": "Vous n'avez pas rejoint le programme !",
+    "shower.leaving_confirmed": "Vous avez bien quitté le programme, on espère que vous avez du déo 72h fixation béton !",
+
+    "shower.confirm_btn": "Rejoindre",
+    "shower.reject_btn": "Refuser",
+    "shower.joining_confirmed": "Bienvenue {mention} dans le programme de lavage ! N'oubliez pas de signaler lorsque vous prenez une douche.",
+    "shower.joining_refused": "Vous avez refusé de rejoindre le saint programme, on espère que vous prenez quand même des douches !",
+
+    "reminder.reminder_text": "Salut {mention}, ça va faire plus de 30h qu'on ne t'as pas vu prendre une douche ! Tout va bien ?"
+}

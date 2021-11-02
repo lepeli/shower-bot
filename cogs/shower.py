@@ -4,10 +4,11 @@ import disnake
 
 
 class InscriptionView(disnake.ui.View):
-    def __init__(self, bot, user):
+    def __init__(self, bot, user, t):
         self.timeout = 30
         self.bot = bot
         self.user = user
+        self.t = t
         super().__init__(timeout=30)
     
     async def interaction_check(self, interaction):
@@ -26,7 +27,7 @@ class InscriptionView(disnake.ui.View):
         else:
             await self.message.edit(view=self)
 
-    @disnake.ui.button(label="Accepter", style=disnake.ButtonStyle.green)
+    @disnake.ui.button(label="Confirmer", style=disnake.ButtonStyle.green)
     async def first_button_callback(self, button, interaction):
         await self.disable_buttons(interaction)
         user = await self.bot.db.get_user(interaction.guild_id, interaction.user.id)
@@ -34,12 +35,12 @@ class InscriptionView(disnake.ui.View):
         user["joined"] = True
 
         await self.bot.db.update_user(interaction.guild_id, interaction.user.id, user)
-        await interaction.channel.send(f"Bienvenue {interaction.user.mention} parmis les fous, n'oublies pas de signaler quand tu prends ta douche.")
+        await interaction.channel.send(self.t("shower.joining_confirmed", mention=interaction.user.mention))
 
-    @disnake.ui.button(label="Refuser", style=disnake.ButtonStyle.danger)
+    @disnake.ui.button(label="Rejeter", style=disnake.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
         await self.disable_buttons(interaction)
-        await interaction.channel.send("Vous avez bien refusé de rejoindre le channel, on espère quand même que vous prenez des douches.")
+        await interaction.channel.send(self.t("shower.joining_refused"))
 
 class Shower(commands.Cog): 
     def __init__(self, bot):
@@ -53,38 +54,41 @@ class Shower(commands.Cog):
         user = await self.bot.db.get_user(ctx.guild.id, ctx.author.id)
 
         if user["joined"]:
-            return await ctx.send(f"Vous êtes déjà inscrit ! Si vous voulez vous désinscrire utilisez la commande `{ctx.prefix}desinscription`")
+            return await ctx.send(ctx.t("shower.already_joined"))
         
-        view = InscriptionView(self.bot, ctx.author.id)
+        view = InscriptionView(self.bot, ctx.author.id, ctx.t)
 
-        view.message = await ctx.send("Voulez-vous vous inscrire au programme avancé de douche ? ", view=view)
+        view.message = await ctx.send(ctx.t("shower.confirm_joining"), view=view)
 
 
-    @commands.command()
-    async def desinscription(self, ctx):
+    @commands.command(aliases=["desinscription"])
+    async def leave(self, ctx):
         """Leave the group of clean people"""
         user = await self.bot.db.get_user(ctx.guild.id, ctx.author.id)
 
         if user["joined"]: 
             user["joined"] = False
             await self.bot.db.update_user(ctx.guild.id, ctx.author.id)
-            return await ctx.send("Vous avez bien été désinscrit ! Nous espérons que vous avez du déo 72h.")
+            return await ctx.send(ctx.t("shower.leaving_confirmed"))
         
-        return await ctx.send("Vous n'êtes pas inscrit !")
+        return await ctx.send(ctx.t("shower.havent_joined"))
 
     @commands.command(aliases=['jaiprisunedouche', 'douche', 'jesuispropre', 'itookashower'])
     async def shower(self, ctx):
         """Tell the bot when you take a shower"""
         user = await self.bot.db.get_user(ctx.guild.id, ctx.author.id)
+
+        if not user['joined']:
+            return await ctx.send("shower.you_need_to_join", prefix=ctx.prefix)
         if user['last_shower']:
             # Vérification du temps entre deux douches
 
             next_shower_allowed = user['last_shower'] + timedelta(hours=11)
             if datetime.now() < next_shower_allowed:
-                return await ctx.send("Vous avez déjà pris une douche il y a moins de 11h, veuillez repasser bientôt")
+                return await ctx.send(ctx.t('shower.you_already_took_one', time_allowed=11))
 
         await self.bot.db.add_shower(ctx.guild.id, ctx.author.id)
-        return await ctx.send("Bravo, vous avez pris une douche !")
+        return await ctx.send(ctx.t('shower.shower_confirmed'))
 
 
 def setup(bot):

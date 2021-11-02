@@ -112,5 +112,11 @@ class Admin(commands.Cog):
             await ctx.send(f"Syntax error in cog {cog}: \n```py\n{e}```")
 
 
+    @commands.command()
+    @commands.is_owner()
+    async def reload_translations(self, ctx):
+        self.bot.translations.load_translations()
+        await ctx.send("I've reloaded translations")
+
 def setup(bot):
     bot.add_cog(Admin(bot))

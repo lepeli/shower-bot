@@ -18,39 +18,39 @@ class Stats(commands.Cog):
         last_showers = await self.bot.db.get_last_showers_by_user(ctx.guild.id, user.id)
 
         user_profile = await self.bot.db.get_user(ctx.guild.id, user.id)
-        em = disnake.Embed(title=f"Profile de {user.display_name}")
-        em.add_field(name="Total de douches", value=user_profile["showers_taken"])
-        em.add_field(name="Streak", value=user_profile["showers_streak"])
+        em = disnake.Embed(title=ctx.t("stats.profile_of", user=user.display_name))
+        em.add_field(name=ctx.t("stats.showers_total"), value=user_profile["showers_taken"])
+        em.add_field(name=ctx.t("stats.streak"), value=user_profile["showers_streak"])
         if len(last_showers):
-           em.add_field(name="Dernière douche", value=timeago.format(user_profile["last_shower"], datetime.now(), locale="fr"))
+           em.add_field(name=ctx.t("stats.last_shower"), value=timeago.format(user_profile["last_shower"], datetime.now(), locale=ctx.t("__lang_short")))
         else:
-           em.add_field(name="Dernière douche", value="Aucune douche n'a été enregistrée")
+           em.add_field(name=ctx.t("last_shower"), value=ctx.t("stats.no_recorded_shower"))
 
         em.set_thumbnail(url=user.display_avatar.url)
 
-        em.description = "**Liste des dernières douches prises**\n```yaml\n"
+        em.description = f"**{ctx.t('stats.last_showers_taken_list')}**\n```yaml\n"
 
         if len(last_showers):
             for shower in last_showers:
-                em.description += f"· Douche: {timeago.format(shower['date'], datetime.now(), locale='fr')}\n"
+                em.description += f"· {ctx.t('words.shower')}: {timeago.format(shower['date'], datetime.now(), locale=ctx.t('__lang_short'))}\n"
         else:
-            em.description += "Aucune douche enregistrée\n"
+            em.description += f"{ctx.t('stats.no_recorded_shower')}\n"
         em.description += "```"
         await ctx.send(embed=em)
 
     @commands.command(disable=True)
     async def server_stats(self, ctx):
-        """Show the server's statistics""" #WIP: users, last showers by which user, ect, shower count...
-        em = disnake.Embed(title="Statistiques du serveur")
-        em.add_field(name="Nombre de douches totales", value=await self.bot.db.count_showers_guild(ctx.guild.id))
-        em.add_field(name="Nombres d'inscrits", value=await self.bot.db.count_active_users_guild(ctx.guild.id))
+        """Show the server's statistics"""
+        em = disnake.Embed(title=ctx.t('stats.guild_stats'))
+        em.add_field(name=ctx.t("stats.showers_total"), value=await self.bot.db.count_showers_guild(ctx.guild.id))
+        em.add_field(name=ctx.t("stats.members_joined_count"), value=await self.bot.db.count_active_users_guild(ctx.guild.id))
         
-        desc = "**Dernières douches prises**\n```yaml\n"
+        desc = f"**{ctx.t('stats.last_showers_taken_list')}**\n```yaml\n"
 
         last_showers = await self.bot.db.get_last_showers_by_guild(ctx.guild.id)
         for shower in last_showers:
             user = await self.bot.getch_user(int(shower["user_id"]))
-            desc += f"· Douche: {timeago.format(shower['date'], datetime.now(), locale='fr')} par {user.name}\n"
+            desc += f"· {ctx.t('words.shower')}: {timeago.format(shower['date'], datetime.now(), locale=ctx.t('__lang_short'))} {ctx.t('words.by')} {user.name}\n"
 
         desc += "\n```"
         em.description = desc

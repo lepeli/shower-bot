@@ -1,9 +1,20 @@
 import os
 import json
 
-from disnake.ext import commands
 from utils import database
+from disnake.ext import commands
+from utils import translations
 
+
+async def before_invoke(ctx):
+
+    if ctx.guild:
+        ctx.config = await ctx.bot.db.get_config(ctx.guild.id)
+        ctx.lang = ctx.config["locale"]
+    else:
+        ctx.lang = ctx.bot.c["default_locale"]
+
+    ctx.t = translations.Translate(lang=ctx.lang, translate_module=ctx.bot.translations).t
 
 if __name__ == "__main__":
 
@@ -26,6 +37,11 @@ if __name__ == "__main__":
             print(f"[Fail] Failed to import cog {cog}: \n\t{e}")
 
     bot.db = database.Database(bot) # Initialisation de la base de données
+
+    bot.translations = translations.Translations("./translations/")
+    bot.translations.load_translations()
+    bot.t = bot.translations.t
+    bot.before_invoke(before_invoke)
 
     bot.run(bot.c["token"])
 
