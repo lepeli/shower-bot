@@ -14,8 +14,8 @@
     "stats.last_shower": "",
     "stats.no_recorded_shower": "",
     "stats.last_showers_taken_list": "",
-    "stats.server_stats": "",
-    "stats.members_who_joined": "",
+    "stats.guild_stats": "",
+    "stats.members_joined_count": "",
 
     "config.guild_config": "",
     "config.reminders_channel_set": "{channel}",

@@ -14,8 +14,8 @@
     "stats.last_shower": "Dernière douche",
     "stats.no_recorded_shower": "Aucune douche enregistrée",
     "stats.last_showers_taken_list": "Dernières douches prises",
-    "stats.server_stats": "Statistiques du serveur",
-    "stats.members_who_joined": "Membres inscrits",
+    "stats.guild_stats": "Statistiques du serveur",
+    "stats.members_joined_count": "Membres inscrits",
 
     "config.guild_config": "Configuration du serveur",
     "config.reminders_channel_set": "Le salon des rappels a été défini sur {channel}",

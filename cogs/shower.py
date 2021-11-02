@@ -68,7 +68,7 @@ class Shower(commands.Cog):
 
         if user["joined"]: 
             user["joined"] = False
-            await self.bot.db.update_user(ctx.guild.id, ctx.author.id)
+            await self.bot.db.update_user(ctx.guild.id, ctx.author.id, user)
             return await ctx.send(ctx.t("shower.leaving_confirmed"))
         
         return await ctx.send(ctx.t("shower.havent_joined"))
