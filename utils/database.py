@@ -123,7 +123,7 @@ class Database:
         return await self.db["showers"].count_documents({"guild_id": str(guild_id), "user_id": str(user_id)})
 
     async def get_last_showers_by_user(self, guild_id: int, user_id: int):
-        cursor = self.db["showers"].find({"guild_id": str(guild_id), "user_id": str(user_id)}, sort=[('last_shower',pymongo.DESCENDING)])
+        cursor = self.db["showers"].find({"guild_id": str(guild_id), "user_id": str(user_id)}, sort=[('date',pymongo.DESCENDING)])
 
         return await cursor.to_list(length=5)
 
