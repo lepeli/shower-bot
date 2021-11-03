@@ -22,7 +22,7 @@ class Stats(commands.Cog):
         em.add_field(name=ctx.t("stats.showers_total"), value=user_profile["showers_taken"])
         em.add_field(name=ctx.t("stats.streak"), value=user_profile["showers_streak"])
         if len(last_showers):
-           em.add_field(name=ctx.t("stats.last_shower"), value=timeago.format(user_profile["last_shower"], datetime.now(), locale=ctx.t("__lang_short")))
+           em.add_field(name=ctx.t("stats.last_shower"), value=timeago.format(user_profile["last_shower"], datetime.now(), locale=ctx.t("__lang_short")).capitalize())
         else:
            em.add_field(name=ctx.t("stats.last_shower"), value=ctx.t("stats.no_recorded_shower"))
 
