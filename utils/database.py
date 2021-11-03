@@ -107,6 +107,7 @@ class Database:
         elif user["last_shower"].day != shower["date"].day:
             user["showers_streak"] += 1 # Ajout dans le streak si le jour est différent
 
+        user['last_notified'] = None # On reset le compteur de notification
         user['last_shower'] = shower["date"]
         await self.update_user(guild_id, user_id, user)
     
@@ -133,5 +134,10 @@ class Database:
 
     async def get_last_showers_by_guild(self, guild_id: int):
         cursor = self.db["showers"].find({"guild_id": str(guild_id)}, sort=[('date',pymongo.DESCENDING)])
+
+        return await cursor.to_list(length=5)
+
+    async def get_smelliest_by_guild(self, guild_id: int):
+        cursor = self.db["showers"].find({"guild_id": str(guild_id)}, sort=[('date',pymongo.ASCENDING)])
 
         return await cursor.to_list(length=5)
