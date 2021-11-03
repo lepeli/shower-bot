@@ -79,7 +79,7 @@ class Shower(commands.Cog):
         user = await self.bot.db.get_user(ctx.guild.id, ctx.author.id)
 
         if not user['joined']:
-            return await ctx.send("shower.you_need_to_join", prefix=ctx.prefix)
+            return await ctx.send(ctx.t("shower.you_need_to_join", prefix=ctx.prefix))
         if user['last_shower']:
             # Vérification du temps entre deux douches
 

@@ -119,6 +119,10 @@ class Database:
         """Count total shower by server"""
         return await self.db["showers"].count_documents({"guild_id": str(guild_id)})
 
+    async def count_showers_all_guilds(self):
+        """Return the total of showers taken across all the guilds"""
+        return await self.db['showers'].count_documents({})
+
     async def count_showers_user_guild(self, guild_id: int, user_id: int):
         return await self.db["showers"].count_documents({"guild_id": str(guild_id), "user_id": str(user_id)})
 
