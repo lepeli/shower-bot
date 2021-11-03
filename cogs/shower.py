@@ -54,7 +54,7 @@ class Shower(commands.Cog):
         user = await self.bot.db.get_user(ctx.guild.id, ctx.author.id)
 
         if user["joined"]:
-            return await ctx.send(ctx.t("shower.already_joined"))
+            return await ctx.send(ctx.t("shower.already_joined", prefix=ctx.prefix))
         
         view = InscriptionView(self.bot, ctx.author.id, ctx.t)
 
