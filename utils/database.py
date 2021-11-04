@@ -102,7 +102,7 @@ class Database:
 
         user['showers_taken'] += 1 # On ajoute le compte de douches
 
-        if not user["last_shower"]:
+        if not user["last_notified"]:
             user["showers_streak"] = 1
         elif user["last_notified"] and user["last_shower"].day != shower["date"].day:
             user["showers_streak"] += 1 # Ajout dans le streak si le jour est différent
