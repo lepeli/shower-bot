@@ -2,6 +2,8 @@
     "__AUTHOR": "DUMMY",
     "__DESCRIPTION": "DUMMY FILES",
     "__lang_short": "",
+    "__name": "Dummy",
+
 
     "words.shower": "",
     "words.yes": "",
@@ -46,5 +48,5 @@
     "shower.joining_confirmed": "shower.joining_confirmed {mention}",
     "shower.joining_refused": "",
 
-    "reminder.reminder_text": "reminder.reminder_text {mention}"
+    "reminder.reminder_text": "reminder.reminder_text {mention} {hours}"
 }

@@ -20,9 +20,12 @@ class Watcher(commands.Cog):
                 for user in users:
                     if user["last_shower"] < datetime.now() - timedelta(hours=32) and (not user['last_notified'] or user["last_notified"] < datetime.now() - timedelta(hours=12)):
                         channel = guild.get_channel(int(guild_config["shower"]["reminder_channel"]))
+                        diff = datetime.now() - user["last_shower"]
+                        hours = int(diff.total_seconds() // 3600) # Convert to hours
                         try:
-                            await channel.send(self.bot.t("reminder.reminder_text", locale=guild_config['locale'], mention=f"<@{user['user_id']}>"))
+                            await channel.send(self.bot.t("reminder.reminder_text", locale=guild_config['locale'], mention=f"<@{user['user_id']}>", hours=hours))
                             user["last_notified"] = datetime.now()
+                            user["showers_streak"] = 0 # Resets the streak to 0 because user didn't shower for more than 32 hours...
                             await self.bot.db.update_user(guild.id, int(user['user_id']), user)
                         except:
                             pass

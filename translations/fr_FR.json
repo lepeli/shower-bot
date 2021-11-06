@@ -2,6 +2,7 @@
     "__AUTHOR": "DUMMY",
     "__DESCRIPTION": "DUMMY FILES",
     "__lang_short": "fr",
+    "__name": "Français",
 
     "words.shower": "Douche",
     "words.yes": "Oui",
@@ -46,5 +47,5 @@
     "shower.joining_confirmed": "Bienvenue {mention} dans le programme de lavage ! N'oubliez pas de signaler lorsque vous prenez une douche.",
     "shower.joining_refused": "Vous avez refusé de rejoindre le saint programme, on espère que vous prenez quand même des douches !",
 
-    "reminder.reminder_text": "Salut {mention}, ça va faire plus de 30h qu'on ne t'a pas vu prendre une douche ! Tout va bien ?"
+    "reminder.reminder_text": "Salut {mention}, ça va faire plus de {hours} heures qu'on ne t'a pas vu prendre une douche ! Tout va bien ?"
 }

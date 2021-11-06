@@ -2,6 +2,7 @@
     "__AUTHOR": "LEPELI",
     "__DESCRIPTION": "Translation for english",
     "__lang_short": "en",
+    "__name": "Français",
 
     "words.shower": "Shower",
     "words.yes": "Yes",
@@ -46,5 +47,5 @@
     "shower.joining_confirmed": "Congrats {mention}, you've successfully joined the advanced shower program !\nDon't forget to tell when you take a shower!",
     "shower.joining_refused": "You refused to join. We hope you still take shower, right ?",
 
-    "reminder.reminder_text": "Hey {mention}, you didn't take a shower for more than 24 hours. Please take one."
+    "reminder.reminder_text": "Hey {mention}, you didn't take a shower for more than {hours} hours. Please take one."
 }
