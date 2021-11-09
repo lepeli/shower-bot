@@ -21,6 +21,7 @@ class Misc(commands.Cog):
         em.add_field(name=ctx.t("misc.stats_users"), value=str(len(self.bot.users)))
         em.add_field(name=ctx.t("misc.stats_emotes"), value=str(len(self.bot.emojis)))
         em.add_field(name=ctx.t("stats.showers_total"), value=await self.bot.db.count_showers_all_guilds())
+        em.add_field(name=ctx.t("stats.members_joined_count"), value= await self.bot.db.count_all_active_users())
 
         # em.add_field(name="Uptime", value=online_time)
         await ctx.send(embed=em)
