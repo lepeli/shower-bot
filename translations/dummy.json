@@ -18,6 +18,9 @@
     "stats.last_showers_taken_list": "",
     "stats.guild_stats": "",
     "stats.members_joined_count": "",
+    "stats.mentionned_user_not_joined": "",
+    "stats.user_not_joined": "stats.user_not_joined {prefix}",
+
 
     "config.guild_config": "",
     "config.reminders_channel_set": "config.reminders_channel_set {channel}",

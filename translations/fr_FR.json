@@ -17,6 +17,8 @@
     "stats.last_showers_taken_list": "Dernières douches prises",
     "stats.guild_stats": "Statistiques du serveur",
     "stats.members_joined_count": "Membres inscrits",
+    "stats.mentionned_user_not_joined": "L'utilisateur n'est pas inscrit !",
+    "stats.user_not_joined": "Vous n'avez pas rejoint le programme, vous pouvez le rejoindre avec la commande `{prefix}inscription`",
 
     "config.guild_config": "Configuration du serveur",
     "config.reminders_channel_set": "Le salon des rappels a été défini sur {channel}",

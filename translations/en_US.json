@@ -17,6 +17,9 @@
     "stats.last_showers_taken_list": "List of showers taken",
     "stats.guild_stats": "Server's stats",
     "stats.members_joined_count": "Members who joined",
+    "stats.mentionned_user_not_joined": "The user you mentionned hasn't joined the shower program.",
+    "stats.user_not_joined": "You haven't joined the program, but you can do so by using the command `{prefix}join`",
+
  
     "config.guild_config": "Server's configuration",
     "config.reminders_channel_set": "Reminders will be sent in {channel}",

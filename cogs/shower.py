@@ -17,6 +17,11 @@ class InscriptionView(disnake.ui.View):
 
     async def on_timeout(self):
         await self.disable_buttons()
+    
+    def translate_buttons(self):
+        for child in self.children:
+            child.label = self.t(child.label)
+
 
     async def disable_buttons(self, interaction = None):
         for child in self.children:
@@ -27,7 +32,7 @@ class InscriptionView(disnake.ui.View):
         else:
             await self.message.edit(view=self)
 
-    @disnake.ui.button(label="Confirmer", style=disnake.ButtonStyle.green)
+    @disnake.ui.button(label="shower.confirm_btn", style=disnake.ButtonStyle.green)
     async def first_button_callback(self, button, interaction):
         await self.disable_buttons(interaction)
         user = await self.bot.db.get_user(interaction.guild_id, interaction.user.id)
@@ -37,7 +42,7 @@ class InscriptionView(disnake.ui.View):
         await self.bot.db.update_user(interaction.guild_id, interaction.user.id, user)
         await interaction.channel.send(self.t("shower.joining_confirmed", mention=interaction.user.mention))
 
-    @disnake.ui.button(label="Rejeter", style=disnake.ButtonStyle.danger)
+    @disnake.ui.button(label="shower.reject_btn", style=disnake.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
         await self.disable_buttons(interaction)
         await interaction.channel.send(self.t("shower.joining_refused"))
@@ -57,7 +62,7 @@ class Shower(commands.Cog):
             return await ctx.send(ctx.t("shower.already_joined", prefix=ctx.prefix))
         
         view = InscriptionView(self.bot, ctx.author.id, ctx.t)
-
+        view.translate_buttons()
         view.message = await ctx.send(ctx.t("shower.confirm_joining"), view=view)
 
 
@@ -83,9 +88,9 @@ class Shower(commands.Cog):
         if user['last_shower']:
             # Vérification du temps entre deux douches
 
-            next_shower_allowed = user['last_shower'] + timedelta(hours=11)
+            next_shower_allowed = user['last_shower'] + timedelta(hours=6)
             if datetime.now() < next_shower_allowed:
-                return await ctx.send(ctx.t('shower.you_already_took_one', time_allowed=11))
+                return await ctx.send(ctx.t('shower.you_already_took_one', time_allowed=6))
 
         await self.bot.db.add_shower(ctx.guild.id, ctx.author.id)
         return await ctx.send(ctx.t('shower.shower_confirmed'))
