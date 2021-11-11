@@ -49,5 +49,11 @@
     "shower.joining_confirmed": "Bienvenue {mention} dans le programme de lavage ! N'oubliez pas de signaler lorsque vous prenez une douche.",
     "shower.joining_refused": "Vous avez refusé de rejoindre le saint programme, on espère que vous prenez quand même des douches !",
 
+    "error.missing_permissions": "Il vous manque les permissions suivantes, pour pouvoir utiliser cette commande: {permissions}",
+    "error.unexpected_error": "Une erreur innatendue s'est produite pendant la commande :/",
+    "error.bot_missing_permissions": "Il me manque les permissions suivantes: {permissions}",
+    "error.command_cooldown": "Cette commande est en cooldown, veuillez patienter encore {seconds} secondes.",
+    "error.unknown_error": "Il y a eu une erreur pendant l'execution de la commande\n```\n{error}```",
+
     "reminder.reminder_text": "Salut {mention}, ça va faire plus de {hours} heures qu'on ne t'a pas vu prendre une douche ! Tout va bien ?"
 }

@@ -50,5 +50,11 @@
     "shower.joining_confirmed": "Congrats {mention}, you've successfully joined the advanced shower program !\nDon't forget to tell when you take a shower!",
     "shower.joining_refused": "You refused to join. We hope you still take shower, right ?",
 
+    "error.missing_permissions": "You're missing some permissions... {permissions}",
+    "error.unexpected_error": "An unexpected error occurred while processing the command :/",
+    "error.bot_missing_permissions": "The bot is missing some permissions... {permissions}",
+    "error.command_cooldown": "This command is on cooldown please try again in {seconds} seconds.",
+    "error.unknown_error": "There was an error during the execution of the command: {error}",
+
     "reminder.reminder_text": "Hey {mention}, you didn't take a shower for more than {hours} hours. Please take one."
 }

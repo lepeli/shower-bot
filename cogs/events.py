@@ -1,7 +1,6 @@
 from disnake.ext import commands
 from disnake.ext.commands import errors
 
-import disnake
 
 class Events(commands.Cog):
 
@@ -21,25 +20,27 @@ class Events(commands.Cog):
         elif isinstance(err, errors.CommandInvokeError):
             if 'forbidden' in str(err).lower() or 'not found' in str(err).lower():
                 return
-            await ctx.send('An unexpected error occurred while processing the command :/')
+            print(str(err))
+            await ctx.send(ctx.t("error.unexpected_error"))
 
         elif isinstance(err, errors.MissingPermissions):
             permissions = '\n'.join([f'- {p.title()}' for p in err.missing_perms])
-            await ctx.send(f'You\'re missing some permissions...\n{permissions}')
+            await ctx.send(ctx.t("error.missing_permissions", permissions=permissions))
 
         elif isinstance(err, errors.BotMissingPermissions):
             permissions = '\n'.join([f'- {p.title()}' for p in err.missing_perms])
-            await ctx.send(f'I\'m missing some permissions...\n{permissions}')
+            await ctx.send(ctx.t("error.bot_missing_permissions", permissions=permissions))
 
         elif isinstance(err, errors.CommandOnCooldown):
-            await ctx.send('This command is on cooldown, you can use it again in '
-                           f'{err.retry_after:.0f} seconds.')
+            await ctx.send(ctx.t("error.command_cooldown", seconds=f"{err.retry_after:.0f}"))
 
         elif isinstance(err, errors.CommandError) and not isinstance(err, errors.CommandNotFound):
-            await ctx.send(str(err))
+            print(err)
+            await ctx.send(ctx.t("error.unknown_error", error=err))
 
         else:
             pass
+
 
 def setup(bot):
     bot.add_cog(Events(bot))

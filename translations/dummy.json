@@ -51,5 +51,12 @@
     "shower.joining_confirmed": "shower.joining_confirmed {mention}",
     "shower.joining_refused": "",
 
+    "error.missing_permissions": "error.missing_permissions {permissions}",
+    "error.unexpected_error": "",
+    "error.bot_missing_permissions": "error.bot_missing_permissions {permissions}",
+    "error.command_cooldown": "error.command_cooldown {seconds}",
+    "error.unknown_error": "error.unknown_error {error}",
+
     "reminder.reminder_text": "reminder.reminder_text {mention} {hours}"
+
 }
