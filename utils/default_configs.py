@@ -11,7 +11,7 @@ user_conf = {
     "user_id": "",
     "guild_id": "", 
     "joined": False,
-    "join_date": None,
+#    "join_date": None,
     "showers_taken": 0,
     "showers_streak": 0,
     "last_notified": None,
