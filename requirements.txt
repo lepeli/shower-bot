@@ -1,3 +1,6 @@
 disnake
 motor
 timeago
+asyncffmpeg
+asynccpu
+ffmpeg-python
