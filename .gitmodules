@@ -1,0 +1,3 @@
+[submodule "video-gen"]
+	path = video-gen
+	url = git@github.com:lepeli/video-gen.git
