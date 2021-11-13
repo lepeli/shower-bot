@@ -13,3 +13,5 @@ services:
     restart: unless-stopped
   bot:
     build: .
+  video_gen:
+    build: video-gen/.
