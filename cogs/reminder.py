@@ -23,19 +23,19 @@ class Watcher(commands.Cog):
             except:
                 return None
 
-    @commands.command(hidden=True)
-    async def sniff(self, ctx, user: disnake.User = None):
-        if not user:
-            user = ctx.author
-        video = await self.get_video(user)
-        await ctx.send(file=disnake.File(video, filename="sheesh.mp4"))
+    # @commands.command(hidden=True)
+    # async def sniff(self, ctx, user: disnake.User = None):
+    #     if not user:
+    #         user = ctx.author
+    #     video = await self.get_video(user)
+    #     await ctx.send(file=disnake.File(video, filename="sheesh.mp4"))
 
-    @commands.command(hidden=True)
-    async def smelly(self, ctx, user: disnake.User = None):
-        if not user:
-            user = ctx.author
-        video = await self.get_video(user, "smelly")
-        await ctx.send(file=disnake.File(video, filename="sheesh.mp4"))
+    # @commands.command(hidden=True)
+    # async def smelly(self, ctx, user: disnake.User = None):
+    #     if not user:
+    #         user = ctx.author
+    #     video = await self.get_video(user, "smelly")
+    #     await ctx.send(file=disnake.File(video, filename="sheesh.mp4"))
 
     @tasks.loop(minutes=5)
     async def shower_watch(self): # After 32h without a shower it will ping the person and then every 12 hours if they didn't answer to the first ping.
