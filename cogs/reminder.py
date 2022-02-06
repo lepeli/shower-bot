@@ -49,12 +49,12 @@ class Watcher(commands.Cog):
                         diff = datetime.now() - user["last_shower"]
                         hours = int(diff.total_seconds() // 3600) # Convert to hours
                         try:
-                            discord_user = await self.bot.getch_user(int(user["user_id"]))
-                            video = await self.get_video(discord_user)
-                            if video:
-                                await channel.send(self.bot.t("reminder.reminder_text", locale=guild_config['locale'], mention=f"<@{user['user_id']}>", hours=hours), file=disnake.File(video, "sniff.mp4"))
-                            else:
-                                await channel.send(self.bot.t("reminder.reminder_text", locale=guild_config['locale'], mention=f"<@{user['user_id']}>", hours=hours))
+                            # discord_user = await self.bot.getch_user(int(user["user_id"]))
+                            # video = await self.get_video(discord_user)
+                            # if video:
+                            #     await channel.send(self.bot.t("reminder.reminder_text", locale=guild_config['locale'], mention=f"<@{user['user_id']}>", hours=hours), file=disnake.File(video, "sniff.mp4"))
+                            # else:
+                            await channel.send(self.bot.t("reminder.reminder_text", locale=guild_config['locale'], mention=f"<@{user['user_id']}>", hours=hours))
                             user["last_notified"] = datetime.now()
                             user["showers_streak"] = 0 # Resets the streak to 0 because user didn't shower for more than 32 hours...
                             await self.bot.db.update_user(guild.id, int(user['user_id']), user)

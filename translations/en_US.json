@@ -1,15 +1,15 @@
 {
-    "__AUTHOR": "LEPELI",
+    "__AUTHOR": "Yvan",
     "__DESCRIPTION": "Translation for english",
     "__lang_short": "en",
-    "__name": "Français",
+    "__name": "English",
 
     "words.shower": "Shower",
     "words.yes": "Yes",
     "words.no": "No",
     "words.by": "by",
 
-    "stats.profile_of": "{user}",
+    "stats.profile_of": "{user}'s profile",
     "stats.streak": "Streak",
     "stats.showers_total": "Total showers taken",
     "stats.last_shower": "Last shower",

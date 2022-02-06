@@ -1,6 +1,6 @@
 {
-    "__AUTHOR": "DUMMY",
-    "__DESCRIPTION": "DUMMY FILES",
+    "__AUTHOR": "Yvan",
+    "__DESCRIPTION": "Fichier de langage pour le baguette",
     "__lang_short": "fr",
     "__name": "Français",
 
@@ -37,7 +37,7 @@
     "misc.stats_users": "Utilisateurs",
 
     "shower.shower_confirmed": "Bravo, vous avez pris une douche !",
-    "shower.you_already_took": "Vous avez déja prit une douche, vous pouvez seulement en prendre toutes les {time_allowed} heures",
+    "shower.you_already_took_one": "Vous avez déja prit une douche, vous pouvez seulement en prendre toutes les {time_allowed} heures",
     "shower.you_need_to_join": "Vous devez rejoindre le programme avec la commande: `{prefix}inscription`",
     "shower.already_joined": "Vous avez déjà rejoint le programme, vous pouvez le quitter avec la commande: `{prefix}desinscription`",
     "shower.confirm_joining": "Voulez-vous rejoindre le programme avancé de douche ?",
