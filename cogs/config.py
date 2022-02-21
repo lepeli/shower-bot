@@ -51,9 +51,11 @@ class Config(commands.Cog):
     @commands.has_guild_permissions(manage_guild=True)
     async def locale(self, ctx, locale: str = None):
         config = await self.bot.db.get_config(ctx.guild.id)
+        locales = self.bot.translations.locales.copy()
+        locales.remove("dummy")
 
         if not locale or locale not in self.bot.translations.locales:
-            return await ctx.send(ctx.t('config.available_locales', locales=", ".join(self.bot.translations.locales)))            
+            return await ctx.send(ctx.t('config.available_locales', locales=", ".join(locales)))            
 
         config['locale'] = locale
 
