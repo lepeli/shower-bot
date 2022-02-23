@@ -1,0 +1,60 @@
+{
+    "__AUTHOR": "Julian",
+    "__DESCRIPTION": "Deutsche Übersetzung",
+    "__lang_short": "de",
+    "__name": "Deutsch",
+
+    "words.shower": "Dusche",
+    "words.yes": "Ja",
+    "words.no": "Nein",
+    "words.by": "von",
+
+    "stats.profile_of": "{user}'s Profil",
+    "stats.streak": "Streak",
+    "stats.showers_total": "Ingesamte Duschen",
+    "stats.last_shower": "Letze Dusche",
+    "stats.no_recorded_shower": "Keine aufgezeichnete Dusche",
+    "stats.last_showers_taken_list": "Liste aller getätigten Duschen",
+    "stats.guild_stats": "Server Statistiken",
+    "stats.members_joined_count": "Begetretene Mitglieder",
+    "stats.mentionned_user_not_joined": "Der erwähnte Nutzer ist nicht teil des dusch Programmes.",
+    "stats.user_not_joined": "Du bist noch nicht Teil des Programms, aber du kannst mit `{prefix}join` beitreten",
+
+ 
+    "config.guild_config": "Server Konfiguration",
+    "config.reminders_channel_set": "Erinnerung wird erstellt in {channel}",
+    "config.reminders_disabled": "Erinnerungen sind nun deaktiviert!\n Wenn du sie wieder aktivieren möchtest nutze `{prefix}set_reminders_channel`",
+    "config.reminders_channel": "Erinnerungskanal",
+    "config.reminders_channel_not_set": "Erinnerungskanal wurde noch nicht gesetzt!",
+    "config.are_reminders_enabled": "Sind erinnerungen aktiviert?",
+    "config.locale": "Sprache",
+    "config.available_locales": "Verfügbare Sprachen: {locales}",
+    "config.locale_updated": "Die Sprache wurde auf `{new_locale}` gesetzt !",
+
+    "misc.invite_link": "Du kannst den Bot über folgenden Link einladen: {invite}",
+    "misc.stats": "Bot Statistik",
+    "misc.stats_guilds": "Servers",
+    "misc.stats_emotes": "Emotes",
+    "misc.stats_users": "Benutzer",
+
+    "shower.shower_confirmed": "Gratuliere! Du hast erfolgreich geduscht!",
+    "shower.you_already_took_one": "Du hast bereits geduscht! Du kannst nur alle {time_allowed} Stunden duschen !",
+    "shower.already_joined": "Du bist bereits dem Duschprogramm begetreten, du kannst es mit `{prefix}leave` verlassen!",
+    "shower.you_need_to_join": "Du kannst der Duschparty mit `{prefix}join` beitreten !",
+    "shower.confirm_joining": "Bist du sicher, das du der duschparty betreten möchtest ?",
+    "shower.havent_joined": "Du bist nicht beigetreten, also musst du auch nicht verlassen !",
+    "shower.leaving_confirmed": "Du hast erfolgreich das Duschprogramm verlassen, aber bitte dusche trozdem sonst gibt es Konsequenzen!",
+
+    "shower.confirm_btn": "Bestätigen",
+    "shower.reject_btn": "Ablehnen",
+    "shower.joining_confirmed": "Gratuliere {mention}, du bist den erweiterten Duschprogramm beigetreten !\nVergiss nicht es zu sagen wenn du geduscht hast!",
+    "shower.joining_refused": "Du wolltest nicht beitreten. Wir hoffen du wirst dich trozdem waschen, oder?",
+
+    "error.missing_permissions": "Dir fehlen Berechtigungen... {permissions}",
+    "error.unexpected_error": "Ein unerwarteter Fehler ist während der Verarbeitung des Befehls aufgetreten :/",
+    "error.bot_missing_permissions": "Dem Bot fehlen Berechtigungen... {permissions}",
+    "error.command_cooldown": "Der Befehl kühlt gerade ab. Bitte versuche es in {seconds} Sekunden erneut..",
+    "error.unknown_error": "Es gab einen Fehler bei der Ausführung des Befehls: {error}",
+
+    "reminder.reminder_text": "Hey {mention}, du hast dich seit {hours} Stunden nicht gewaschen. Bitte geh duschen."
+}
