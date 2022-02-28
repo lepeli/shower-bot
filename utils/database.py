@@ -104,7 +104,7 @@ class Database:
 
         if user["last_notified"]:
             user["showers_streak"] = 1
-        elif not user["last_notified"] and user["last_shower"].day != shower["date"].day:
+        elif not user["last_notified"]:
             user["showers_streak"] += 1 # Ajout dans le streak si le jour est différent
         else:
             user["showers_streak"] = 1
