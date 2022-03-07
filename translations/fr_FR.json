@@ -36,7 +36,7 @@
     "misc.stats_emotes": "Émojis",
     "misc.stats_users": "Utilisateurs",
 
-    "shower.shower_confirmed": "Bravo tu as pris ta douche... Mais \nhttps://cdn.discordapp.com/attachments/454806713850396673/944181974321487883/20220218_114136.jpg",
+    "shower.shower_confirmed": "Bravo tu as pris ta douche, tu es désormais quelqu'un de propre. GG WP",
     "shower.you_already_took_one": "Vous avez déja prit une douche, vous pouvez seulement en prendre toutes les {time_allowed} heures",
     "shower.you_need_to_join": "Vous devez rejoindre le programme avec la commande: `{prefix}inscription`",
     "shower.already_joined": "Vous avez déjà rejoint le programme, vous pouvez le quitter avec la commande: `{prefix}desinscription`",
